@@ -3,6 +3,8 @@ package hello.controller;
 import hello.Model.ProductList;
 import hello.data.ProductRepository;
 import hello.topic.ProductTopic;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository repository;
+
+    private static final Log logger = LogFactory.getLog(ProductController.class);
+
 
 
     @RequestMapping("/product/snapshot")
@@ -36,6 +41,7 @@ public class ProductController {
 
         final DeferredResult<ProductList> result = productTopic.subscribe(productTypeId);
 
+        logger.info("topic " + productTypeId);
         return result;
     }
 

@@ -19,21 +19,22 @@ public class ProductRepository {
     private int irsEnd = irsBegin;
 
     private int oisBegin = 100;
+
     private int oisEnd = oisBegin;
 
     private ConcurrentHashMap buildIRS() {
         ConcurrentHashMap ret = new ConcurrentHashMap();
 
 
-        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "1Y/1Y Fwd", ""));
+        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "1Y/1Y Fwd"));
         irsEnd++;
-        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "6M q/q", ""));
+        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "6M q/q"));
         irsEnd++;
-        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "1Y q/q", ""));
+        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "1Y q/q"));
         irsEnd++;
-        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "2Y q/q", ""));
+        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "2Y q/q"));
         irsEnd++;
-        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "3Y q/q", ""));
+        ret.put(irsEnd, new Product(irsEnd, PRODUCT_TYPE_IRS, "3Y q/q"));
 
         return ret;
     }
@@ -42,15 +43,15 @@ public class ProductRepository {
         ConcurrentHashMap ret = new ConcurrentHashMap();
 
 
-        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "1mOIS", ""));
+        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "1mOIS"));
         oisEnd++;
-        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "2mOIS", ""));
+        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "2mOIS"));
         oisEnd++;
-        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "3mOIS", ""));
+        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "3mOIS"));
         oisEnd++;
-        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "4mOIS", ""));
+        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "4mOIS"));
         oisEnd++;
-        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "5mOIS", ""));
+        ret.put(oisEnd, new Product(oisEnd, PRODUCT_TYPE_OIS, "5mOIS"));
 
         return ret;
     }
@@ -71,6 +72,26 @@ public class ProductRepository {
 
         return (List<Product>)products.values().stream().collect(Collectors.toList());
 
+    }
+
+    public Product getProduct(int productTypeId, int productId){
+        return data.get(productTypeId).get(productId);
+    }
+
+    public int getIrsBegin() {
+        return irsBegin;
+    }
+
+    public int getIrsEnd() {
+        return irsEnd;
+    }
+
+    public int getOisBegin() {
+        return oisBegin;
+    }
+
+    public int getOisEnd() {
+        return oisEnd;
     }
 
 }

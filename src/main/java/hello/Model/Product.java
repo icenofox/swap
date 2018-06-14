@@ -8,14 +8,21 @@ public class Product implements Serializable {
     private String tenor;
     private int productId;
     private int productTypeId;
-    private String mid;
-    private String delta;
+    private Double mid;
+    private Double delta;
 
-    public Product(int productId, int productTypeId, String tenor, String mid){
+    public Product(int productId, int productTypeId, String tenor){
+        this.productId = productId;
+        this.productTypeId = productTypeId;
+        this.tenor = tenor;
+    }
+
+    public Product(int productId, int productTypeId, String tenor, Double mid, Double delta){
         this.productId = productId;
         this.productTypeId = productTypeId;
         this.mid = mid;
         this.tenor = tenor;
+        this.delta = delta;
     }
 
 
@@ -43,19 +50,19 @@ public class Product implements Serializable {
         this.productTypeId = productTypeId;
     }
 
-    public String getMid() {
+    public Double getMid() {
         return mid;
     }
 
-    public void setMid(String mid) {
+    public void setMid(Double mid) {
         this.mid = mid;
     }
 
-    public String getDelta() {
+    public Double getDelta() {
         return delta;
     }
 
-    public void setDelta(String delta) {
+    public void setDelta(Double delta) {
         this.delta = delta;
     }
 }

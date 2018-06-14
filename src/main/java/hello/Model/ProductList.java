@@ -8,6 +8,14 @@ public class ProductList implements Serializable {
     private int productTypeId;
     private List<Product> products;
 
+    public ProductList(int productTypeId, List<Product> products) {
+        this.products = products;
+        this.productTypeId = productTypeId;
+    }
+
+    public ProductList() {
+
+    }
 
     public int getProductTypeId() {
         return productTypeId;
