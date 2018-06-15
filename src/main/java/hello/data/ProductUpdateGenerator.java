@@ -107,21 +107,21 @@ public class ProductUpdateGenerator {
 
     @PostConstruct
     public void init() {
-        Executors.newSingleThreadExecutor().execute(() -> {
-            while (true) {
-                try {
-                    long start = System.currentTimeMillis();
-                    generate();
-                    long spend = System.currentTimeMillis() - start;
-                    if (spend > 500) {
-                        logger.error("generate too long " + spend);
-                    }
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        Executors.newSingleThreadExecutor().execute(() -> {
+//            while (true) {
+//                try {
+//                    long start = System.currentTimeMillis();
+//                    generate();
+//                    long spend = System.currentTimeMillis() - start;
+//                    if (spend > 500) {
+//                        logger.error("generate too long " + spend);
+//                    }
+//                    Thread.sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
 }
