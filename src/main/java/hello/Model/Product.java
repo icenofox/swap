@@ -1,5 +1,7 @@
 package hello.Model;
 
+import hello.data.ProductUpdateGenerator;
+
 import java.io.Serializable;
 
 public class Product implements Serializable {
@@ -15,6 +17,7 @@ public class Product implements Serializable {
         this.productId = productId;
         this.productTypeId = productTypeId;
         this.tenor = tenor;
+        this.mid = ProductUpdateGenerator.randomMid();
     }
 
     public Product(int productId, int productTypeId, String tenor, Double mid, Double delta){

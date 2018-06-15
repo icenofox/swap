@@ -16,8 +16,7 @@ import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-import static hello.Model.ProductConstant.PRODUCT_TYPE_IRS;
-import static hello.Model.ProductConstant.PRODUCT_TYPE_OIS;
+import static hello.Model.ProductConstant.*;
 
 @Component
 public class ProductUpdateGenerator {
@@ -31,13 +30,13 @@ public class ProductUpdateGenerator {
     @Autowired
     private ProductRepository repository;
 
-    private double randomMid() {
+    public static double randomMid() {
         return BigDecimal.valueOf(RandomUtils.nextDouble())
                 .setScale(2, RoundingMode.HALF_UP)
                 .doubleValue();
     }
 
-    private double randomDelta() {
+    public static double randomDelta() {
         double number = RandomUtils.nextInt(200) - 100;
 
         return BigDecimal.valueOf(number / 100)
@@ -79,9 +78,15 @@ public class ProductUpdateGenerator {
         if (RandomUtils.nextBoolean()) {
 
             topic.onUpdate(time, PRODUCT_TYPE_OIS, generate(PRODUCT_TYPE_OIS, repository.getOisBegin(), repository.getOisEnd()));
-        }
-        else {
+        } else {
             topic.onUpdate(time, PRODUCT_TYPE_OIS, null);
+        }
+
+        if (RandomUtils.nextBoolean()) {
+
+            topic.onUpdate(time, PRODUCT_TYPE_BASIS_SWAP, generate(PRODUCT_TYPE_BASIS_SWAP, repository.getBasisSwapBegin(), repository.getBasisSwapEnd()));
+        } else {
+            topic.onUpdate(time, PRODUCT_TYPE_BASIS_SWAP, null);
         }
 
     }
