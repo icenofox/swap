@@ -89,6 +89,13 @@ public class ProductUpdateGenerator {
             topic.onUpdate(time, PRODUCT_TYPE_BASIS_SWAP, null);
         }
 
+        if (RandomUtils.nextBoolean()) {
+
+            topic.onUpdate(time, PRODUCT_TYPE_AUD_OIS, generate(PRODUCT_TYPE_AUD_OIS, repository.getAudOisBegin(), repository.getAudOisEnd()));
+        } else {
+            topic.onUpdate(time, PRODUCT_TYPE_AUD_OIS, null);
+        }
+
     }
 
     @PostConstruct

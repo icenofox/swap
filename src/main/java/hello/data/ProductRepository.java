@@ -24,6 +24,9 @@ public class ProductRepository {
     private int basisSwapBegin = 200;
     private int basisSwapEnd = basisSwapBegin;
 
+    private int audOisBegin = 300;
+    private int audOisEnd = audOisBegin;
+
     private ConcurrentHashMap buildIRS() {
         ConcurrentHashMap ret = new ConcurrentHashMap();
 
@@ -212,12 +215,78 @@ public class ProductRepository {
         return ret;
     }
 
+    private ConcurrentHashMap buildAudOis(){
+
+        ConcurrentHashMap ret = new ConcurrentHashMap();
+
+
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "1mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "2mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "3mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "4mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "5mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "6mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "9mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "12mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "15mOIS"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "30mOIS ann"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "36mOIS ann"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Jul-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Aug-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Sep-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Oct-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Nov-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Dec-18 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Feb-19 Meeting"));
+        oisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Mar-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Apr-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA May-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Jun-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Jul-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Aug-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Sep-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Oct-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Nov-19 Meeting"));
+        audOisEnd++;
+        ret.put(audOisEnd, new Product(audOisEnd, PRODUCT_TYPE_AUD_OIS, "RBA Dec-19 Meeting"));
+
+        return ret;
+    }
+
     @PostConstruct
     public void init() {
 
         data.put(PRODUCT_TYPE_IRS, buildIRS());
         data.put(PRODUCT_TYPE_OIS, buildOIS());
         data.put(PRODUCT_TYPE_BASIS_SWAP, buildBasisSwap());
+        data.put(PRODUCT_TYPE_AUD_OIS, buildAudOis());
+
     }
 
     public List<Product> getProducts(int productTypeId) {
@@ -256,6 +325,14 @@ public class ProductRepository {
 
     public int getBasisSwapEnd() {
         return basisSwapEnd;
+    }
+
+    public int getAudOisBegin() {
+        return audOisBegin;
+    }
+
+    public int getAudOisEnd() {
+        return audOisEnd;
     }
 
 }
