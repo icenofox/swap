@@ -28,6 +28,9 @@ public class ProductTopic {
         subMaps.put(PRODUCT_TYPE_IRS, new ConcurrentLinkedQueue<>());
         subMaps.put(PRODUCT_TYPE_OIS, new ConcurrentLinkedQueue<>());
         subMaps.put(PRODUCT_TYPE_BASIS_SWAP, new ConcurrentLinkedQueue<>());
+        subMaps.put(PRODUCT_TYPE_AUD_OIS, new ConcurrentLinkedQueue<>());
+        subMaps.put(PRODUCT_TYPE_BILLSLIBOR, new ConcurrentLinkedQueue<>());
+
     }
 
     public DeferredResult<ProductList> subscribe(int productTypeId) {

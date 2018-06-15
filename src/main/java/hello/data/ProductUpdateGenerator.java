@@ -96,6 +96,13 @@ public class ProductUpdateGenerator {
             topic.onUpdate(time, PRODUCT_TYPE_AUD_OIS, null);
         }
 
+        if (RandomUtils.nextBoolean()) {
+
+            topic.onUpdate(time, PRODUCT_TYPE_BILLSLIBOR, generate(PRODUCT_TYPE_BILLSLIBOR, repository.getBillBegin(), repository.getBillEnd()));
+        } else {
+            topic.onUpdate(time, PRODUCT_TYPE_BILLSLIBOR, null);
+        }
+
     }
 
     @PostConstruct

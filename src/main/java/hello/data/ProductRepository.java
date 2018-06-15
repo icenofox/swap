@@ -27,6 +27,9 @@ public class ProductRepository {
     private int audOisBegin = 300;
     private int audOisEnd = audOisBegin;
 
+    private int billBegin = 400;
+    private int billEnd = billBegin;
+
     private ConcurrentHashMap buildIRS() {
         ConcurrentHashMap ret = new ConcurrentHashMap();
 
@@ -215,7 +218,7 @@ public class ProductRepository {
         return ret;
     }
 
-    private ConcurrentHashMap buildAudOis(){
+    private ConcurrentHashMap buildAudOis() {
 
         ConcurrentHashMap ret = new ConcurrentHashMap();
 
@@ -279,6 +282,72 @@ public class ProductRepository {
         return ret;
     }
 
+    private ConcurrentHashMap buildBillsLibor() {
+
+        ConcurrentHashMap ret = new ConcurrentHashMap();
+
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "2Y1Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "6M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "9M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "1Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "3Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "2Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "4Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "5Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "6Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "7Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "8Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "9Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "10Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "12Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "15Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "20Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "25Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "30Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "1M3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "2M3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "3M3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "6M3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "6M6M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "9M3M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "1Y6M BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "1Y1Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "2Y1Y BILLSLIBOR"));
+        billEnd++;
+        ret.put(billEnd, new Product(billEnd, PRODUCT_TYPE_BILLSLIBOR, "5Y5Y BILLSLIBOR"));
+
+
+        return ret;
+    }
+
     @PostConstruct
     public void init() {
 
@@ -286,6 +355,8 @@ public class ProductRepository {
         data.put(PRODUCT_TYPE_OIS, buildOIS());
         data.put(PRODUCT_TYPE_BASIS_SWAP, buildBasisSwap());
         data.put(PRODUCT_TYPE_AUD_OIS, buildAudOis());
+        data.put(PRODUCT_TYPE_BILLSLIBOR, buildBillsLibor());
+
 
     }
 
@@ -334,5 +405,14 @@ public class ProductRepository {
     public int getAudOisEnd() {
         return audOisEnd;
     }
+
+    public int getBillBegin() {
+        return billBegin;
+    }
+
+    public int getBillEnd() {
+        return billEnd;
+    }
+
 
 }
